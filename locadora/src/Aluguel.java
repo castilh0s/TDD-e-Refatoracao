@@ -15,4 +15,12 @@ public class Aluguel {
 	public int getDiasAluguel() {
 		return diasAluguel;
 	}
+
+	public double getValor() {
+		return filme.getValor(diasAluguel);
+	}
+
+	public int getPontos() {
+		return filme.getPontos(diasAluguel);
+	}
 }

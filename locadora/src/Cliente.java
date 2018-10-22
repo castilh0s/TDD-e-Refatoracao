@@ -28,30 +28,11 @@ public class Cliente {
 		for (Aluguel aluguel : this.alugueis) {
 			double valor = 0;
 
-//			Calcula o valor do aluguel
-			switch (aluguel.getFilme().getPreco()) {
-			case Filme.NORMAL:
-				valor += 1.5;
-				if (aluguel.getDiasAluguel() > 3)
-					valor += (aluguel.getDiasAluguel() - 3) * 1.5;
-				break;
-			case Filme.INFANTIL:
-				valor += 2;
-				if (aluguel.getDiasAluguel() > 3)
-					valor += (aluguel.getDiasAluguel() - 3) * 1.5;
-				break;
-			case Filme.LANCAMENTO:
-				valor += aluguel.getDiasAluguel() * 3;
-				break;
-			}
+// 			Calcula o valor do aluguel
+			valor += aluguel.getValor();
 
-//			Adiciona um ponto
-			pontos++;
-
-//			Bônus para mais de dois dias com um lançamento
-			if (aluguel.getFilme().getPreco() == Filme.LANCAMENTO && aluguel.getDiasAluguel() > 1) {
-				pontos++;
-			}
+//			Calcula os pontos
+			pontos += aluguel.getPontos();
 
 //			Adiciona os dados dessa aluguel
 			dados.append("\t" + aluguel.getFilme().getTitulo() + "\t");
